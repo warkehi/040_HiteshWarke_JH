@@ -1,0 +1,59 @@
+-- Q1
+create table DEPT
+(
+deptno INT,
+dname VARCHAR(15),
+loc VARCHAR(10));
+
+insert into DEPT values
+(10,'ACCOUNTING','NEW YORK'),
+(20,'RESEARCH','DALLAS'),
+(30,'SALES','CHICAGO'),
+(40,'OPERATIONS', 'BOSTON');
+select * from DEPT;
+
+-- Q2
+create table EMP
+(
+EMPNO int,
+ENAME varchar(10),
+JOB varchar(9),
+HIREDATE date,
+SAL float,
+COMM float,
+DEPTNO int );
+drop table EMP;
+
+insert into EMP values
+(7839,'KING','MANAGER','1991-11-17',5000,NULL,10),
+(7698,'BLAKE','CLERK','1981-05-01',2850, NULL, 30),
+(7782,'CLARK','MANAGER','1981-06-09',2450,NULL,10),
+(7566,'JONES','CLERK','1981-04-02',2975,NULL,20),
+(7654, 'MARTIN','SALESMAN','1981-09-28',1250, 1400,30),
+(7499,'ALLEN','SALESMAN','1981-02-20',1600, 300, 30);
+
+select *from EMP;
+-- Q3
+select * from EMP where sal between 2500 and 5000;
+
+-- Q4
+select ENAME from EMP order by ENAME desc;
+
+-- Q5
+select lower(JOB) from EMP;
+
+-- Q6
+select ENAME,length(ENAME) from EMP;
+
+-- Q7
+select deptno,count(*) from EMP group by deptno;
+
+-- Q8
+select e.ENAME,d.DNAME from EMP e join dept d on e.deptno=d.deptno;
+
+-- Q9
+select locate('AR',ENAME) from EMP;
+
+-- Q10
+select ENAME,(20/100)*sal as HRA from EMP;
+
